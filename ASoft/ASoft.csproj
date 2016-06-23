@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{87C9DB3A-94BB-4B3B-9E09-1C3647943670}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASoft</RootNamespace>
+    <AssemblyName>ASoft</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.8\lib\net40\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.24160419\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseHttpHandler.cs" />
+    <Compile Include="Cache\CacheNotificationEventArgs.cs" />
+    <Compile Include="Cache\ICacheable.cs" />
+    <Compile Include="Cache\ICachePublisher.cs" />
+    <Compile Include="Cache\ICacheSubscriber.cs" />
+    <Compile Include="Cache\TimeToLive.cs" />
+    <Compile Include="CHMoney.cs" />
+    <Compile Include="ClassHelper.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="CookieHelper.cs" />
+    <Compile Include="CustPropertyInfo.cs" />
+    <Compile Include="Dal\BaseDal.cs" />
+    <Compile Include="Dal\BaseDALFactory.cs" />
+    <Compile Include="Dal\IBaseDal.cs" />
+    <Compile Include="Dal\IDALFactory.cs" />
+    <Compile Include="DateUtils.cs" />
+    <Compile Include="Db\DataAccess.cs" />
+    <Compile Include="Db\DataAttribute.cs" />
+    <Compile Include="Db\DataCommand.cs" />
+    <Compile Include="Db\DbCommandParame.cs" />
+    <Compile Include="Db\DbResult.cs" />
+    <Compile Include="Db\DbTools.cs" />
+    <Compile Include="Db\IDataAccess.cs" />
+    <Compile Include="Db\IDataCommand.cs" />
+    <Compile Include="Db\MySqlDataAccess.cs" />
+    <Compile Include="Db\OdbcDataAccess.cs" />
+    <Compile Include="Db\OleDbDataAccess.cs" />
+    <Compile Include="Db\OracleDataAccess.cs" />
+    <Compile Include="Db\PageSearch.cs" />
+    <Compile Include="Db\SeqGen.cs" />
+    <Compile Include="Db\SqlDataAccess.cs" />
+    <Compile Include="EcanRMB.cs" />
+    <Compile Include="Extension\BaseDalExtension.cs" />
+    <Compile Include="Extension\ConcurrentDictionaryExtensions.cs" />
+    <Compile Include="Extension\HttpRequestExtension.cs" />
+    <Compile Include="Extension\StringExtension.cs" />
+    <Compile Include="IO\FileConnection.cs" />
+    <Compile Include="IO\GZipCompress.cs" />
+    <Compile Include="IO\Helper.cs" />
+    <Compile Include="IO\SerialPortConnection.cs" />
+    <Compile Include="IO\SerialPortConnection1.cs" />
+    <Compile Include="IO\ZipComporessor.cs" />
+    <Compile Include="IRange.cs" />
+    <Compile Include="ListResult.cs" />
+    <Compile Include="LogAdapter.cs" />
+    <Compile Include="Model\ActCase.cs" />
+    <Compile Include="Model\ActConfig.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\ConfigModel.cs" />
+    <Compile Include="Model\Entity.cs" />
+    <Compile Include="Model\IBaseMode.cs" />
+    <Compile Include="Model\ITreeNode.cs" />
+    <Compile Include="Model\RestResult.cs" />
+    <Compile Include="Model\SessionData.cs" />
+    <Compile Include="Model\SessionKey.cs" />
+    <Compile Include="Model\StatusFlag.cs" />
+    <Compile Include="Model\TreeNode.cs" />
+    <Compile Include="Model\UserInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rand.cs" />
+    <Compile Include="Range.cs" />
+    <Compile Include="Reflect.cs" />
+    <Compile Include="Regular.cs" />
+    <Compile Include="Security.cs" />
+    <Compile Include="Serialize.cs" />
+    <Compile Include="SerializeIgnore.cs" />
+    <Compile Include="Text\HtmlUtils.cs" />
+    <Compile Include="Text\IDUtils.cs" />
+    <Compile Include="Text\PinYin.cs" />
+    <Compile Include="Text\StringUtils.cs" />
+    <Compile Include="Text\UBBUtils.cs" />
+    <Compile Include="Text\ValidateUtils.cs" />
+    <Compile Include="TimeRange.cs" />
+    <Compile Include="Utilities\DelegateFactory.cs" />
+    <Compile Include="Utilities\Ensure.cs" />
+    <Compile Include="Utilities\FlowControlUtil.cs" />
+    <Compile Include="Utilities\Helper.cs" />
+    <Compile Include="Utilities\ObjectId.cs" />
+    <Compile Include="Utilities\ObjectUtils.cs" />
+    <Compile Include="Utilities\TypeUtils.cs" />
+    <Compile Include="ValueResult.cs" />
+    <Compile Include="VariFormula.cs" />
+    <Compile Include="VoidResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

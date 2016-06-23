@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2AC5973-9C8C-4C4E-9AAC-D0F381137EBB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASoft</RootNamespace>
+    <AssemblyName>ASoft.Ext</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\ASoft.MiniOA\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASoftException.cs" />
+    <Compile Include="Cache\CacheRepository.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Configuration\ASoftConfig.csd.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASoftConfig.csd</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\AggregateRoot.cs" />
+    <Compile Include="Domain\DomainRepository.cs" />
+    <Compile Include="Domain\Exception\AggregateNotFoundException.cs" />
+    <Compile Include="Domain\IAggregateRoot.cs" />
+    <Compile Include="Domain\IAggregateStorage.cs" />
+    <Compile Include="Domain\IDomainRepository.cs" />
+    <Compile Include="Events\InMemoryEventStore.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="IHandler.cs" />
+    <Compile Include="IO\AsyncTaskResult.cs" />
+    <Compile Include="IPurgeable.cs" />
+    <Compile Include="Messages\CommandConsumer.cs" />
+    <Compile Include="Commands\CommandHandler.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandHandler.cs" />
+    <Compile Include="Commands\ICommandSender.cs" />
+    <Compile Include="Commands\ITrackingContext.cs" />
+    <Compile Include="DisposableObject.cs" />
+    <Compile Include="Events\DomainEvent.cs" />
+    <Compile Include="Events\IDomainEvent.cs" />
+    <Compile Include="Events\IEventHandler.cs" />
+    <Compile Include="Messages\IEventPublisher.cs" />
+    <Compile Include="Events\IEventStore.cs" />
+    <Compile Include="Messages\EventConsumer.cs" />
+    <Compile Include="Messages\ICommandConsumer.cs" />
+    <Compile Include="Messages\IEventConsumer.cs" />
+    <Compile Include="Messages\IMessageConsumer.cs" />
+    <Compile Include="Messages\IMessageHandler.cs" />
+    <Compile Include="Messages\IMessage.cs" />
+    <Compile Include="Messages\IMessagePublisher.cs" />
+    <Compile Include="Messages\IMessageSubscriber.cs" />
+    <Compile Include="Messages\ISequenceMessage.cs" />
+    <Compile Include="Messages\Message.cs" />
+    <Compile Include="Messages\MessageReceivedEventArgs.cs" />
+    <Compile Include="Messages\SequenceMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ASoft\ASoft.csproj">
+      <Project>{87c9db3a-94bb-4b3b-9e09-1c3647943670}</Project>
+      <Name>ASoft</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Configuration\ASoftConfig.csd">
+      <Generator>CsdFileGenerator</Generator>
+      <LastGenOutput>ASoftConfig.csd.cs</LastGenOutput>
+    </None>
+    <None Include="Configuration\ASoftConfig.csd.config">
+      <DependentUpon>ASoftConfig.csd</DependentUpon>
+    </None>
+    <None Include="Configuration\ASoftConfig.csd.diagram">
+      <DependentUpon>ASoftConfig.csd</DependentUpon>
+    </None>
+    <None Include="Configuration\ASoftConfig.csd.xsd">
+      <DependentUpon>ASoftConfig.csd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
